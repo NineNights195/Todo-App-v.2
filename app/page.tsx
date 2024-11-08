@@ -13,6 +13,16 @@ import {
 } from "@mantine/core";
 
 export default function Home() {
+  // Define Task interface
+  interface Task {
+    id: number;
+    text: string;
+    completed: boolean;
+  }
+
+  // State
+  const [tasks, setTasks] = useState<Task[]>([]);
+
   return (
     <Group style={{ backgroundColor: "#9c36b5", height: "100vh" }}>
       <Center
