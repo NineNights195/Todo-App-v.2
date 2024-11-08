@@ -21,7 +21,13 @@ export default function Home() {
   }
 
   // State
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([
+    { id: 1, text: "Task 1", completed: false },
+    { id: 2, text: "Task 2", completed: false },
+    { id: 3, text: "Task 3", completed: false },
+    { id: 4, text: "Task 4", completed: false },
+    { id: 5, text: "Task 5", completed: false },
+  ]);
 
   return (
     <Group style={{ backgroundColor: "#9c36b5", height: "100vh" }}>
@@ -41,7 +47,9 @@ export default function Home() {
           </Group>
 
           {/* Task List */}
-          <Checkbox size="lg" label="Task 1" />
+          {tasks.map((task) => (
+            <Checkbox size="lg" label={task.text} />
+          ))}
         </Stack>
       </Center>
     </Group>
