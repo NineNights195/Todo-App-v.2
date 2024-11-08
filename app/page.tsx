@@ -1,6 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Box, Center, Group, Stack, Text, Title } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Center,
+  Group,
+  Stack,
+  Text,
+  Title,
+  TextInput,
+  Checkbox,
+} from "@mantine/core";
 
 export default function Home() {
   return (
@@ -10,7 +20,19 @@ export default function Home() {
         bg={"var(--mantine-color-white)"}
         style={{ borderRadius: "10px", padding: "35vh", margin: "auto" }}
       >
-        <Title order={1}>Todo List</Title>
+        <Stack>
+          {/* Title */}
+          <Title order={1}>Todo List</Title>
+
+          {/* Add Task */}
+          <Group>
+            <Button>Add Task</Button>
+            <TextInput placeholder="Add a new task" />
+          </Group>
+
+          {/* Task List */}
+          <Checkbox size="lg" label="Task 1" />
+        </Stack>
       </Center>
     </Group>
   );
