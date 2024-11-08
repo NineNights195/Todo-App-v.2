@@ -23,13 +23,7 @@ export default function Home() {
   }
 
   // State
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, text: "Task 1", completed: false },
-    { id: 2, text: "Task 2", completed: false },
-    { id: 3, text: "Task 3", completed: false },
-    { id: 4, text: "Task 4", completed: false },
-    { id: 5, text: "Task 5", completed: false },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [newTask, setNewTask] = useState("");
 
   // Remove tasks
