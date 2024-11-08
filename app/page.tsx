@@ -11,6 +11,7 @@ import {
   TextInput,
   Checkbox,
 } from "@mantine/core";
+import { text } from "stream/consumers";
 
 export default function Home() {
   // Define Task interface
@@ -28,6 +29,16 @@ export default function Home() {
     { id: 4, text: "Task 4", completed: false },
     { id: 5, text: "Task 5", completed: false },
   ]);
+  const [newTask, setNewTask] = useState("");
+
+  // ID Counter
+  let idCounter = tasks.length;
+
+  // Add Task
+  const addTask = (text: string) => {
+    idCounter++;
+    setTasks([...tasks, { id: idCounter, text, completed: false }]);
+  };
 
   return (
     <Group style={{ backgroundColor: "#9c36b5", height: "100vh" }}>
@@ -42,8 +53,13 @@ export default function Home() {
 
           {/* Add Task */}
           <Group>
-            <Button>Add Task</Button>
-            <TextInput placeholder="Add a new task" />
+            <Button disabled={newTask === ""} onClick={() => addTask(newTask)}>
+              Add Task
+            </Button>
+            <TextInput
+              placeholder="Add a new task"
+              onChange={(e) => setNewTask(e.target.value)}
+            />
           </Group>
 
           {/* Task List */}
