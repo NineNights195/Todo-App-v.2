@@ -1,12 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import {
-  Box,
   Button,
   Center,
   Group,
   Stack,
-  Text,
   Title,
   TextInput,
   Checkbox,
