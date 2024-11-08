@@ -69,19 +69,21 @@ export default function Home() {
           </Group>
 
           {/* Task List */}
-          {tasks.map((task) => (
-            <Group key={task.id} justify="space-between" w="100%">
-              <Checkbox size="lg" label={task.text} />
-              {/* Remove Button */}
-              <Button
-                variant="outline"
-                color="red"
-                onClick={() => removeTask(task.id)}
-              >
-                Remove
-              </Button>
-            </Group>
-          ))}
+          <ScrollArea h={300}>
+            {tasks.map((task) => (
+              <Group key={task.id} justify="space-between" w="100%">
+                <Checkbox size="lg" label={task.text} />
+                {/* Remove Button */}
+                <Button
+                  variant="outline"
+                  color="red"
+                  onClick={() => removeTask(task.id)}
+                >
+                  Remove
+                </Button>
+              </Group>
+            ))}
+          </ScrollArea>
         </Stack>
       </Center>
     </Group>
