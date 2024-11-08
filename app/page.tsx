@@ -10,6 +10,7 @@ import {
   Title,
   TextInput,
   Checkbox,
+  ScrollArea,
 } from "@mantine/core";
 import { text } from "stream/consumers";
 
@@ -30,6 +31,11 @@ export default function Home() {
     { id: 5, text: "Task 5", completed: false },
   ]);
   const [newTask, setNewTask] = useState("");
+
+  // Remove tasks
+  const removeTask = (id: number) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
 
   // ID Counter
   let idCounter = tasks.length;
@@ -64,7 +70,17 @@ export default function Home() {
 
           {/* Task List */}
           {tasks.map((task) => (
-            <Checkbox size="lg" label={task.text} />
+            <Group key={task.id} justify="space-between" w="100%">
+              <Checkbox size="lg" label={task.text} />
+              {/* Remove Button */}
+              <Button
+                variant="outline"
+                color="red"
+                onClick={() => removeTask(task.id)}
+              >
+                Remove
+              </Button>
+            </Group>
           ))}
         </Stack>
       </Center>
